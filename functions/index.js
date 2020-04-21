@@ -21,7 +21,8 @@ server.get('/contacts', (req, res) => {
 
 server.post('/contacts', (req, res) => {
     const id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 10);
-    db.collection('contacts').doc(id).set(req.body)
+    
+    db.collection('ourcontacts').doc(id).set(req.body)
         .then(() => res.json(['created']))
         .catch(() => res.json(['failed']));
 })
